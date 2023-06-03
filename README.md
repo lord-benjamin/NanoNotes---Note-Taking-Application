@@ -5,13 +5,13 @@
 1. Clone the repository to your local machine.
     
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/lord-benjamin/NanoNotes---Note-Taking-Application.git
    ```
 
 2. Navigate to the project directory.
 
    ```bash
-   cd your-repo
+   cd NanoNotes---Note-Taking-Application
    ```
 
 3. Install the required dependencies using NPM.
