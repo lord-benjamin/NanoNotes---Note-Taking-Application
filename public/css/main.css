@@ -1,23 +1,156 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-:root{
-    --background-color: #FFD460;
-    --bs-primary-rgb: #2D4059;
+
+:root {
+    --background-color: #ffd460;
+    --bs-primary-rgb: #2d4059;
+    --bs-secondary-rgb: #3f4e4f;
 }
-body{
-    font-family: 'League Spartan', sans-serif;
+
+body {
+    font-family: "League Spartan", sans-serif;
     background-color: var(--background-color);
     color: var(--bs-primary-rgb);
-    font-weight: 300;
+    font-weight: 500;
     font-size: 1.2rem;
     background-image: url(../images/noice-bg.svg);
 }
-#header-icon{
-    width: 2em;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Paytone One", sans-serif;
+    font-weight: 800;
 }
-#footer-icon{
-    width: 4em;
+
+.container-fluid-custom {
+    max-width: 1600px;
+}
+
+.btn {
+    font-size: 1rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    line-height: 2rem;
+    height: 2rem;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--bs-primary-rgb);
+    --bs-btn-border-color: var(--bs-primary-rgb);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: var(--bs-secondary-rgb);
+    --bs-btn-hover-border-color: var(--bs-secondary-rgb);
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--bs-secondary-rgb);
+    --bs-btn-active-border-color: var(--bs-secondary-rgb);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--bs-primary-rgb);
+    --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-primary-rgb);
+    --bs-btn-border-color: var(--bs-primary-rgb);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--bs-secondary-rgb);
+    --bs-btn-hover-border-color: var(--bs-secondary-rgb);
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--bs-secondary-rgb);
+    --bs-btn-active-border-color: var(--bs-secondary-rgb);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--bs-primary-rgb);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+    --bs-gradient: none;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 100%;
+    padding: auto;
+}
+
+.brand p {
+    padding-top: 7px;
+}
+
+.brand img {
+    width: 1.1em;
+    margin-right: 0.15em;
+}
+
+.fourofour div {
+    height: 100%;
+}
+
+.fourofour div div h1 {
+    font-size: 300%;
+}
+
+.fourofour div img {
+    height: 100%;
+    max-height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+.search-box {
+    font-size: 1.1rem;
+    height: 2.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-primary-rgb);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-secondary-rgb);
+    width: 10px;
+}
+
+@media (min-width: 1150px) {
+    .home {
+        background: url(../images/human1.png) left no-repeat,
+            url(../images/human2.png) right no-repeat,
+            url(../images/noice-bg.svg) left top repeat, var(--background-color);
+    }
+}
+
+@media (min-width: 992px) {
+    .home-title::before {
+        content: url("../images/stars.svg");
+        position: absolute;
+        left: -100px;
+        top: -30px;
+        z-index: -1;
+    }
+
+    .home-title::after {
+        content: url("../images/stars.svg");
+        position: absolute;
+        right: -30px;
+        bottom: -40px;
+        z-index: -1;
+    }
 }

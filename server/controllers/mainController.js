@@ -8,7 +8,10 @@ exports.home = async(req,res)=>{
         title: "NanoNotes - Note Taking Application",
         description: "NanoNotes is a sleek and powerful note-taking application that seamlessly captures and organizes your thoughts, ideas, and inspirations. Elevate your note-taking experience with NanoNotes and unlock the potential of enhanced organization, searchability, and productivity.",
     }
-    res.render("home",locals);
+    res.render("home",{
+        locals,
+        layout: "../views/layouts/home-page-layout.ejs"
+    });
 }
 
 /*******
