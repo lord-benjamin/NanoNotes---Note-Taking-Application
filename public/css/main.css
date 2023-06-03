@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --background-color: #FFD460;
+    --bs-primary-rgb: #2D4059;
+}
+body{
+    font-family: 'League Spartan', sans-serif;
+    background-color: var(--background-color);
+    color: var(--bs-primary-rgb);
+    font-weight: 300;
+    font-size: 1.2rem;
+    background-image: url(../images/noice-bg.svg);
+}
+#header-icon{
+    width: 2em;
+}
+#footer-icon{
+    width: 4em;
+}
