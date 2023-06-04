@@ -14,7 +14,7 @@ body {
     font-family: "League Spartan", sans-serif;
     background-color: var(--background-color);
     color: var(--bs-primary-rgb);
-    font-weight: 500;
+    font-weight: 300;
     font-size: 1.2rem;
     background-image: url(../images/noice-bg.svg);
 }
@@ -26,7 +26,7 @@ h4,
 h5,
 h6 {
     font-family: "Paytone One", sans-serif;
-    font-weight: 800;
+    font-weight: 300;
 }
 
 .container-fluid-custom {
@@ -104,16 +104,45 @@ h6 {
     height: 100%;
     max-height: 100vh;
 }
-
-::-webkit-scrollbar {
-    width: 5px;
+.dp{
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
 }
-
 .search-box {
     font-size: 1.1rem;
     height: 2.5rem;
 }
+.pagination{
+    border-radius: 50%;
+}
+/* .pagination > li > a{
+    border-radius: 50%;
+} */
+.pagination > li > a{
+    padding-top: 0.55rem;
+    color: var(--bs-primary-rgb);
+    background-color: transparent !important;
+    border: 1px solid var(--bs-primary-rgb) !important;
+}
+.pagination > li > a:hover{
+    color: white;
+    background-color: var(--bs-secondary-rgb) !important;
+    border: 1px solid var(--bs-secondary-rgb) !important;
+}
+.pagination > .active > a{
+    color: white;
+    background-color: var(--bs-primary-rgb) !important;
+    border: 1px solid var(--bs-primary-rgb) !important;
+}
+.pagination > .active > a:hover{
+    background-color: var(--bs-secondary-rgb) !important;
+    border: 1px solid var(--bs-secondary-rgb) !important;
+}
 
+::-webkit-scrollbar {
+    width: 5px;
+}
 ::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 20px;

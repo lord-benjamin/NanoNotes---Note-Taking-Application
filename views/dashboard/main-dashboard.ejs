@@ -1,1 +1,108 @@
-<h1>Dashboard</h1>
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+    <div class="row mb-2 px-5">
+        <div class="col">
+            <h1>Hi, <%- userName %></h1>
+        </div>
+    </div>
+    <div class="row mb-4 px-5">
+        <div class="col">
+            <h1 class="fs-3">
+                <% if(allNotes.length > 0){ %>
+                    Here are your notes...
+                <% } else { %>
+                    You don't have any notes currently...
+                <% } %>
+            </h1>
+        </div>
+        <div class="col text-end">
+            <a href="/dashboard/add" class="btn btn-primary">Add Note</a>
+        </div>
+    </div>
+    <div class="row px-5">
+        <%  if(allNotes.length > 0){ %>
+            <%  for(let i=0; i<allNotes.length; ++i){ %>
+                    <div class="col-sm-3 mb-4">
+                        <div class="card border-primary rounded-4" style="min-height: 210px">
+                            <a href="/dashboard/notes/<%= allNotes[i]._id %>" class="card-body text-decoration-none">
+                                <h5 class="card-title"><%= allNotes[i].title.length>30 ? allNotes[i].title.substr(0,30)+"..." : allNotes[i].title %></h5>
+                                <p class="card-text"><%= allNotes[i].content.length>100 ? allNotes[i].content.substr(0,100)+"..." : allNotes[i].content %></p>
+                            </a>
+                        </div>
+                    </div>
+            <%  } %>
+        <%  } else{ %>
+                <div class="row">
+                    <div class="col-4 text-end">
+                        <img src="images/human 3.png" alt="human pointing to create button">
+                    </div>
+                    <div class="col">
+                        <h1>Okay,</h1>
+                        <h5 class="mb-4">Let's start with your first note!</h5>
+                        <a class="fs-4 fw-bold" href="/dashboard/add">Create one!</a>
+                    </div>
+                </div>
+        <%  } %>
+    </div>
+    <%  if(allNotes.length > 0){ %>
+        <nav>
+            <ul class="pagination justify-content-center mt-5">
+                <% if(totalPages <= 3){ %>
+                    <% if(currentPage != 1){ %>
+                        <li class="page-item"><a class="page-link" href="/dashboard">First</a></li>
+                        <% var prev = Number(currentPage)-1 %>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= prev %>"><i class="fa-solid fa-chevron-left"></i></a></li>
+                    <% } %>
+                    <% for(let i = 1; i<=totalPages; ++i){ %>
+                        <% if(i==currentPage){ %>
+                            <li class="page-item active"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                        <% } else{ %>
+                            <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                        <% } %>
+                    <% } %>
+                    <% if(currentPage != totalPages){ %>
+                        <% var next = Number(currentPage)+1 %>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= next %>"><i class="fa-solid fa-chevron-right"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= totalPages %>">Last</a></li>
+                    <% } %>
+                <% } else { %>
+                    <% if(currentPage != 1){ %>
+                        <li class="page-item"><a class="page-link" href="/dashboard">First</a></li>
+                        <% var prev = Number(currentPage)-1 %>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= prev %>"><i class="fa-solid fa-chevron-left"></i></a></li>
+                    <% } %>
+                    <% if(currentPage > 2){ %>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                    <% } %>
+                    <% if(currentPage == 1){ %>
+                        <li class="page-item active"><a class="page-link" href="/dashboard">1</a></li>
+                        <% for(let i = 2; i<=3; ++i){ %>
+                            <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                        <% } %>
+                    <% } %>  
+                    <% if(currentPage > 1 && currentPage < totalPages){ %>
+                        <% var prev = Number(currentPage)-1 %>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= prev %>"><%= prev %></a></li>
+                        <% var curr = Number(currentPage) %>
+                        <li class="page-item active"><a class="page-link" href="/dashboard/?page=<%= curr %>"><%= curr %></a></li>
+                        <% var next = Number(currentPage)+1 %>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= next %>"><%= next %></a></li>
+                    <% } %>
+                    <% if(currentPage == totalPages){ %>
+                        <% for(let i = totalPages-2; i<=totalPages-1; ++i){ %>
+                            <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <li class="page-item active"><a class="page-link" href="/dashboard/?page=<%= totalPages %>"><%= totalPages %></a></li>
+                    <% } %> 
+                    <% if(currentPage < totalPages-1){ %>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                    <% } %>
+                    <% if(currentPage != totalPages){ %>
+                        <% var next = Number(currentPage)+1 %>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= next %>"><i class="fa-solid fa-chevron-right"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= totalPages %>">Last</a></li>
+                    <% } %>
+                <% } %>
+            </ul>
+        </nav>
+    <%  } %>
+</div>

@@ -18,7 +18,7 @@ app.use(session({
         mongoUrl: process.env.MONGODB_URI
     }),
     cookie: {
-        maxAge: new Date(Date.now() + (604800000)) // 7 days
+        maxAge: Date.now() + (604800000) // 7 days
     }
 }))
 
@@ -46,6 +46,8 @@ app.use("/",require("./server/routes/dashboard"));
 
 app.get("*",async(req,res)=>{
     res.status(404).render("404",{
+        btnContent: "Explore NanoNotes",
+        url: "/",
         layout: "layouts/404-layout.ejs"
     });
 })
