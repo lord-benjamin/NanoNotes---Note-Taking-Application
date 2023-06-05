@@ -48,23 +48,26 @@ app.use("/",require("./server/routes/dashboard"));
 
 app.get("/dashboard/*",async(req,res)=>{
     res.status(404).render("404",{
+        locals: {title: "404 - Not Found"},
         btnContent: "Go to Dashboard",
         url: "/dashboard",
-        layout: "../views/layouts/404-layout.ejs"
+        layout: "../views/layouts/error-layout.ejs"
     });
 })
 app.get("/dashboard/notes/*",async(req,res)=>{
     res.status(404).render("404",{
+        locals: {title: "404 - Not Found"},
         btnContent: "Go to Dashboard",
         url: "/dashboard",
-        layout: "../views/layouts/404-layout.ejs"
+        layout: "../views/layouts/error-layout.ejs"
     });
 })
 app.get("*",async(req,res)=>{
     res.status(404).render("404",{
+        locals: {title: "404 - Not Found"},
         btnContent: "Explore NanoNotes",
         url: "/",
-        layout: "layouts/404-layout.ejs"
+        layout: "layouts/error-layout.ejs"
     });
 })
 

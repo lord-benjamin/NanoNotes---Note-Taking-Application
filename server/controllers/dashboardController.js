@@ -36,9 +36,10 @@ exports.dashboard = async(req,res)=>{
         const lastPage = Math.ceil(totalNotes/notesPerPage);
         if(pageNo>lastPage && totalNotes>0){
             res.status(404).render("404",{
+                locals: {title: "404 - Not Found"},
                 btnContent: "Go to Dashboard",
                 url: "/dashboard",
-                layout: "../views/layouts/404-layout.ejs"
+                layout: "../views/layouts/error-layout.ejs"
             });
         }
         else{
@@ -84,9 +85,10 @@ exports.viewNote = async(req,res)=>{
     }
     else{
         res.status(404).render("404",{
+            locals: {title: "404 - Not Found"},
             btnContent: "Go to Dashboard",
             url: "/dashboard",
-            layout: "../views/layouts/404-layout.ejs"
+            layout: "../views/layouts/error-layout.ejs"
         });
     }
 }
