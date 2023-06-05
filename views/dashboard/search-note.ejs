@@ -16,7 +16,6 @@
                     </a>
                 </div>
             </div>
-            <% console.log(searchResults); %>
             <% searchResults.forEach(note => { %>
                 <a type="submit" class="mb-2" href="/dashboard/notes/<%= note._id %>">
                     <h4><%= note.title %></h4>
