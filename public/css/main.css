@@ -113,14 +113,26 @@ h6 {
     font-size: 1.1rem;
     height: 2.5rem;
 }
-.pagination{
-    border-radius: 50%;
+.card{
+    transition: 0.2s ease;
 }
-/* .pagination > li > a{
-    border-radius: 50%;
-} */
+.card:hover{
+    color: var(--bs-secondary-rgb);
+    transform: scale(1.02);
+}
+.card-bottom{
+    margin: 0 1rem 0.5rem;
+}
+.card-bottom div{
+    width: auto;
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
 .pagination > li > a{
-    padding-top: 0.55rem;
+    padding-top: 0.65rem;
     color: var(--bs-primary-rgb);
     background-color: transparent !important;
     border: 1px solid var(--bs-primary-rgb) !important;

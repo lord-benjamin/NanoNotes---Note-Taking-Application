@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const methodOverride = require("method-override");
 const connectDb = require("./server/config/db.js");
 const session = require("express-session");
 const passport = require("passport");
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 // Connect to Database
 connectDb();
@@ -44,6 +46,20 @@ app.use("/",require("./server/routes/auth"));
 app.use("/",require("./server/routes/index"));
 app.use("/",require("./server/routes/dashboard"));
 
+app.get("/dashboard/*",async(req,res)=>{
+    res.status(404).render("404",{
+        btnContent: "Go to Dashboard",
+        url: "/dashboard",
+        layout: "../views/layouts/404-layout.ejs"
+    });
+})
+app.get("/dashboard/notes/*",async(req,res)=>{
+    res.status(404).render("404",{
+        btnContent: "Go to Dashboard",
+        url: "/dashboard",
+        layout: "../views/layouts/404-layout.ejs"
+    });
+})
 app.get("*",async(req,res)=>{
     res.status(404).render("404",{
         btnContent: "Explore NanoNotes",

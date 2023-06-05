@@ -1,0 +1,105 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+  <div class="row mb-3 px-5">
+    <div class="col">
+      <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb fw-bolder">
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active">
+            <%= note.title.length>80 ? note.title.substr(0,80)+"..." :
+            note.title %>
+          </li>
+        </ol>
+      </nav>
+      <div class="col d-flex justify-content-between align-items-center">
+        <h1 class="h3 pt-1">View Note</h1>
+        <h4 class="fs-5 pt-2">(Click wherever you want to edit.)</h4>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#deleteModal"
+        >
+          Delete Note
+        </button>
+      </div>
+    </div>
+  </div>
+  <form
+    action="/dashboard/notes/<%= noteId %>?_method=PUT"
+    method="POST"
+    class="position-relative mx-5"
+  >
+    <div
+      class="form-group position-absolute"
+      style="top: 1px; right: 1px; left: 1px"
+    >
+      <input
+        type="text"
+        class="form-control fw-bold border-0 fs-3 px-4 pt-3 rounded-4"
+        id="title"
+        name="title"
+        value="<%= note.title %>"
+        placeholder="Title..."
+      />
+    </div>
+    <div class="form-group mb-4">
+      <textarea
+        style="padding-top: 4.5rem"
+        class="form-control border-0 fs-4 px-4 pb-3 rounded-4"
+        name="content"
+        id="content"
+        placeholder="Take a note..."
+        rows="8"
+      >
+<%= note.content %>
+        </textarea
+      >
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg">Update Note</button>
+      <a href="/dashboard"
+        ><button type="button" class="btn btn-outline-primary">Cancel</button></a
+      >
+    </div>
+  </form>
+</div>
+
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">
+          You are about to delete a note!
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        This will permanently delete the note
+        <strong class="fw-bold"><%= note.title %>.</strong><br />
+        Are your sure you want to delete it?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <form
+          action="/dashboard/delete/<%= noteId %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
