@@ -21,7 +21,7 @@ passport.use(
       };
       try {
         let user = await User.findOne({ googleId: profile.id });
-        if (user) { 
+        if (user) {
           done(null, user);
         } else {
           user = await User.create(newUser);
@@ -54,15 +54,14 @@ router.get("/login-failure", (req, res) => {
 
 // Destroy user session
 router.get("/logout", (req, res) => {
-  req.session.destroy(err =>{
-    if(err){
-        console.log(err);
-        res.send("Error Logging Out");
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      res.send("Error Logging Out");
+    } else {
+      res.redirect("/");
     }
-    else{
-        res.redirect("/");
-    }
-  })
+  });
 });
 
 // Persist user data after successful authentication
@@ -72,13 +71,12 @@ passport.serializeUser((user, done) => {
 
 // Retrieve user data from session
 passport.deserializeUser(async (id, done) => {
-    try{
-        const user = await User.findById(id);
-        done(null,user);
-    }
-    catch(error){
-        done(error,null);
-    }
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (error) {
+    done(error, null);
+  }
 });
 
 module.exports = router;
