@@ -17,6 +17,7 @@ body {
     font-weight: 300;
     font-size: 1.2rem;
     background-image: url(../images/noice-bg.svg);
+    position: relative;
 }
 
 h1,
@@ -31,6 +32,9 @@ h6 {
 
 .container-fluid-custom {
     max-width: 1600px;
+    height: auto;
+    /* min-height: 100vh;    */
+    /* padding-bottom: 30vh; */
 }
 
 .btn {
@@ -91,7 +95,10 @@ h6 {
     width: 1.1em;
     margin-right: 0.15em;
 }
-
+.features li::marker{
+    content: "✔ ";
+    font-size: 1.5rem;
+}
 .error div {
     height: 100%;
 }
