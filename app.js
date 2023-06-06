@@ -34,12 +34,12 @@ app.use(methodOverride("_method"));
 connectDb();
 
 // Static files
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/views"));
 
 // Templating engine
 app.use(expressLayouts);
 app.set("layout","./layouts/main-layout.ejs");
-app.set('views', path.join(__dirname, 'views'));
 app.set("view engine","ejs");
 
 // Routes
