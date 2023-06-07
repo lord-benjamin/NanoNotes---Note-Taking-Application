@@ -14,12 +14,12 @@ const port = 3000 || process.env.PORT;
 app.use(session({
     secret: "monitor mouse",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: mongoStore.create({
         mongoUrl: process.env.MONGODB_URI
     }),
     cookie: {
-        maxAge: Date.now() + (604800000) // 7 days
+        maxAge: Date.now() + (7 * 24 * 60 * 60 * 1000) // 7 days
     }
 }))
 
