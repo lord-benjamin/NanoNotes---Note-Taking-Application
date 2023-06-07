@@ -195,7 +195,7 @@ exports.searchNotePage = async(req,res)=>{
 
 /*******
  * POST /
- * SEARCH Note*
+ * Search Note*
  *******/
 
 exports.searchNote = async(req,res)=>{
