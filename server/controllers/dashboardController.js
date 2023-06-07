@@ -105,7 +105,7 @@ exports.updateNote = async(req,res)=>{
             {
                 title: req.body.title,
                 content: req.body.content,
-                updatedAt: Date.now()
+                updatedAt: new Date(Date.now())
             },
         )
         .where({user: req.user.id});
@@ -159,8 +159,8 @@ exports.addNote = async(req,res)=>{
             user: req.user.id,
             title: req.body.title,
             content: req.body.content,
-            createdAt: Date.now(),
-            updatedAt: Date.now()
+            createdAt: new Date(Date.now()),
+            updatedAt: new Date(Date.now())
         });
         await newNote.save();
         res.redirect("/dashboard");
