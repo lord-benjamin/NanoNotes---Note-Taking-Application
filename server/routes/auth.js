@@ -18,7 +18,7 @@ passport.use(
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         profileImage: profile.photos[0].value,
-        createdAt: new Date(Date.now()).getTimezoneOffset()
+        createdAt: new Date()
       };
       try {
         let user = await User.findOne({ googleId: profile.id });

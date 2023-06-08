@@ -16,11 +16,11 @@ const NoteSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: new Date(Date.now())
+        default: new Date()
     },
     updatedAt: {
         type: Date,
-        default: new Date(Date.now())
+        default: new Date()
     }
 });
 
