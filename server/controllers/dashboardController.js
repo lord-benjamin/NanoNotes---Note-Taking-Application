@@ -156,16 +156,12 @@ exports.addNotePage = async(req,res)=>{
 
 exports.addNote = async(req,res)=>{
     try{
-    	var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
-        var localTime  = moment.utc(date).toDate();
-        localTime = moment(localTime).local().format('YYYY-MM-DD HH:mm:ss');
-        
         const newNote = new Note({
             user: req.user.id,
             title: req.body.title,
             content: req.body.content,
-            createdAt: localTime,
-            updatedAt: localTime
+            createdAt: moment.format(),
+            updatedAt: moment.format()
         });
         await newNote.save();
         res.redirect("/dashboard");
