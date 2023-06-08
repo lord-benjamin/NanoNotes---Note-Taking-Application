@@ -155,12 +155,15 @@ exports.addNotePage = async(req,res)=>{
 
 exports.addNote = async(req,res)=>{
     try{
+    	const date = new Date().toLocaleDateString();
+    	const time = new Date().toLocaleTimeString();
+    	const fullTime = time + date;
         const newNote = new Note({
             user: req.user.id,
             title: req.body.title,
             content: req.body.content,
-            createdAt: Intl.DateTimeFormat().resolvedOptions().timeZone,
-            updatedAt: Intl.DateTimeFormat().resolvedOptions().timeZone
+            createdAt: fullTime,
+            updatedAt: fullTime
         });
         await newNote.save();
         res.redirect("/dashboard");

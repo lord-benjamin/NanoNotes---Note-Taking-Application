@@ -29,12 +29,12 @@
                             </a>
                             <div class="card-bottom">
                                 <div>
-                                    <div>Last Updated: <%= ('0'+allNotes[i].updatedAt.getHours()).slice(-2) %>:<%= ('0'+allNotes[i].updatedAt.getMinutes()).slice(-2) %></div>
-                                    <div>Update Date: <%= ('0'+allNotes[i].updatedAt.getDate()).slice(-2) %>-<%= ('0'+(allNotes[i].updatedAt.getMonth()+1)).slice(-2) %>-<%= allNotes[i].updatedAt.getFullYear() %></div>
+                                    <div>Last Updated: <%= allNotes[i].updateAt %> </div>
+                                    <div>Update Date: <%= allNotes[i].updateAt %> </div>
                                 </div>
                                 <div>
-                                    <div>Time Created: <%= ('0'+allNotes[i].createdAt.getHours()).slice(-2) %>:<%= ('0'+allNotes[i].createdAt.getMinutes()).slice(-2) %></div>
-                                    <div>Create Date: <%= ('0'+allNotes[i].createdAt.getDate()).slice(-2) %>-<%= ('0'+(allNotes[i].createdAt.getMonth()+1)).slice(-2) %>-<%= allNotes[i].createdAt.getFullYear() %></div>
+                                    <div>Time Created: <%= allNotes[i].createdAt %> </div>
+                                    <div>Create Date: <%= allNotes[i].createdAt %> </div>
                                 </div>
                             </div>
                         </div>
