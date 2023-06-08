@@ -105,7 +105,7 @@ exports.updateNote = async(req,res)=>{
             {
                 title: req.body.title,
                 content: req.body.content,
-                updatedAt: new Date(Date.now())
+                updatedAt: new Date(Date.now()).getTimezoneOffset()
             },
         )
         .where({user: req.user.id});
@@ -159,8 +159,8 @@ exports.addNote = async(req,res)=>{
             user: req.user.id,
             title: req.body.title,
             content: req.body.content,
-            createdAt: new Date(Date.now()),
-            updatedAt: new Date(Date.now())
+            createdAt: new Date(Date.now()).getTimezoneOffset(),
+            updatedAt: new Date(Date.now()).getTimezoneOffset()
         });
         await newNote.save();
         res.redirect("/dashboard");
