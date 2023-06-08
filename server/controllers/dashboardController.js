@@ -1,5 +1,6 @@
 const Note = require("../models/Note.js");
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 /*******
  * GET /
@@ -155,15 +156,16 @@ exports.addNotePage = async(req,res)=>{
 
 exports.addNote = async(req,res)=>{
     try{
-    	const date = new Date().toLocaleDateString();
-    	const time = new Date().toLocaleTimeString();
-    	const fullTime = time + date;
+    	var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
+        var localTime  = moment.utc(date).toDate();
+        localTime = moment(localTime).local().format('YYYY-MM-DD HH:mm:ss');
+        
         const newNote = new Note({
             user: req.user.id,
             title: req.body.title,
             content: req.body.content,
-            createdAt: fullTime,
-            updatedAt: fullTime
+            createdAt: localTime,
+            updatedAt: localTime
         });
         await newNote.save();
         res.redirect("/dashboard");
