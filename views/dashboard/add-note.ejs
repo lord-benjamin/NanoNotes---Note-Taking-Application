@@ -20,7 +20,11 @@
     </div>
   </div>
   <form action="/dashboard/add" method="POST" class="position-relative mx-5">
-    <% const full = new Date(); let d = full.toLocaleString(); %>
+    <% const utcTimestamp = Date.now(); %>
+    <% const timezoneOffset = new Date().getTimezoneOffset(); %>
+    <% const localTimestamp = utcTimestamp - (timezoneOffset * 60000); %>
+    <% const localDate = new Date(localTimestamp); %>
+    <% const d = localDate.toString(); %>
     <input type="hidden" value="<%= d %>" name="date">
     <div
       class="form-group position-absolute"
