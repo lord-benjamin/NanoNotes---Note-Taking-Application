@@ -15,10 +15,12 @@ const NoteSchema = new Schema({
         required: true
     },
     createdAt: {
-        type: Date,
+        type: String,
+        required: true
     },
     updatedAt: {
-        type: Date,
+        type: String,
+        required: true
     }
 });
 
