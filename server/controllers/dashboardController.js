@@ -1,6 +1,5 @@
 const Note = require("../models/Note.js");
 const mongoose = require("mongoose");
-const moment = require("moment");
 
 /*******
  * GET /
