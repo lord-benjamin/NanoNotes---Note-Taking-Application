@@ -16,11 +16,11 @@ const NoteSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: new Date().getTimeZoneOffset()
+        default: new Date().getTimezoneOffset()
     },
     updatedAt: {
         type: Date,
-        default: new Date().getTimeZoneOffset()
+        default: new Date().getTimezoneOffset()
     }
 });
 
