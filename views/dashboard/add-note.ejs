@@ -20,7 +20,7 @@
     </div>
   </div>
   <form action="/dashboard/add" method="POST" class="position-relative mx-5">
-    <% const d = Date.now(); %>
+    <% const d = Date.now().getHours(); %>
     <input type="hidden" value="<%= d %>" name="date">
     <div
       class="form-group position-absolute"
