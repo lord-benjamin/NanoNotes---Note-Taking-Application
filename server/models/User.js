@@ -24,6 +24,7 @@ const UserSchema = new Schema({
     },
     createdAt: {
         type: Date,
+        required: true,
         default: Date.now() + 19800000
     }
 });
