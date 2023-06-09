@@ -1,21 +1,20 @@
 <div class="container-fluid container-fluid-custom pb-5 mb-5">
-  <div class="row mb-3 px-5">
-    <div class="col">
-      <nav aria-label="breadcrumb ">
+  <div class="row mb-3 px-md-5 px-3">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
         <ol class="breadcrumb fw-bolder">
           <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
           <li class="breadcrumb-item active">
-            <%= note.title.length>80 ? note.title.substr(0,80)+"..." :
-            note.title %>
+            <%= note.title.length>80 ? note.title.substr(0,80)+"..." : note.title %>
           </li>
         </ol>
       </nav>
-      <div class="col d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center flex-md-row flex-column">
         <h1 class="h3 pt-1">View Note</h1>
-        <h4 class="fs-5 pt-2">(Click wherever you want to edit.)</h4>
+        <h4 class="fs-5 pt-2 pb-md-0 pb-2 text-center">(Click wherever you want to edit.)</h4>
         <button
           type="button"
-          class="btn btn-danger"
+          class="btn btn-danger mt-1"
           data-bs-toggle="modal"
           data-bs-target="#deleteModal"
         >
@@ -27,10 +26,10 @@
   <form
     action="/dashboard/notes/<%= noteId %>?_method=PUT"
     method="POST"
-    class="position-relative mx-5"
+    class="position-relative px-md-5 px-3"
   >
     <div
-      class="form-group position-absolute"
+      class="form-group position-absolute mx-md-5 mx-3"
       style="top: 1px; right: 1px; left: 1px"
     >
       <input
@@ -50,12 +49,9 @@
         id="content"
         placeholder="Take a note..."
         rows="8"
-      >
-<%= note.content %>
-        </textarea
-      >
+      ><%= note.content %></textarea>
     </div>
-    <div class="form-group">
+    <div class="form-group text-md-start text-center">
       <button type="submit" class="btn btn-primary btn-lg">Update Note</button>
       <a href="/dashboard"
         ><button type="button" class="btn btn-outline-primary">Cancel</button></a

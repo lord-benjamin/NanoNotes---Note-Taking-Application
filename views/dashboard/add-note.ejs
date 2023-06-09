@@ -1,9 +1,9 @@
 <div class="container-fluid container-fluid-custom pb-5 mb-5">
-  <div class="row mb-3 px-5">
-    <div class="col">
-      <div class="col d-flex justify-content-between align-items-center">
-        <h1 class="h3 pt-1">Add Note</h1>
-        <a class="text-decoration-none" href="/dashboard"
+  <div class="row mb-3 px-md-5 px-3">
+    <div class="col-12">
+      <div class="col d-flex justify-content-between align-items-center flex-sm-row flex-column-reverse">
+        <h1 class="h3 pt-2">Add Note</h1>
+        <a class="text-decoration-none mb-sm-0 mb-2" href="/dashboard"
           ><button type="submit" class="btn btn-primary btn-lg d-flex">
             <div
               class="h-100 d-flex align-items-center me-2"
@@ -19,9 +19,9 @@
       </div>
     </div>
   </div>
-  <form action="/dashboard/add" method="POST" class="position-relative mx-5">
+  <form action="/dashboard/add" method="POST" class="position-relative px-md-5 px-3">
     <div
-      class="form-group position-absolute"
+      class="form-group position-absolute mx-md-5 mx-3"
       style="top: 1px; right: 1px; left: 1px"
     >
       <input
@@ -44,7 +44,7 @@
         required
       ></textarea>
     </div>
-    <div class="form-group">
+    <div class="form-group text-sm-start text-center">
       <button type="submit" class="btn btn-primary btn-lg">Add Note</button>
       <a href="/dashboard"
         ><button type="button" class="btn btn-outline-primary">Cancel</button></a

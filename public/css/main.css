@@ -33,8 +33,6 @@ h6 {
 .container-fluid-custom {
     max-width: 1600px;
     height: auto;
-    /* min-height: 100vh;    */
-    /* padding-bottom: 30vh; */
 }
 
 .btn {
@@ -99,17 +97,18 @@ h6 {
     content: "✔ ";
     font-size: 1.5rem;
 }
-.error div {
-    height: 100%;
+.error div div{
+    margin-right: 20px;
 }
-
 .error div div h1 {
-    font-size: 300%;
+    font-size: 65px;
 }
-
+.error div{
+    min-height: 100vh;
+}
 .error div img {
-    height: 100%;
-    max-height: 100vh;
+    height: 700px;
+    width: auto;
 }
 .dp{
     height: 2.5rem;
@@ -138,11 +137,31 @@ h6 {
     align-items: center;
     font-weight: 500;
 }
+.pagination > li{
+    height: 3rem;
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .pagination > li > a{
-    padding-top: 0.65rem;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.2s ease;
     color: var(--bs-primary-rgb);
     background-color: transparent !important;
     border: 1px solid var(--bs-primary-rgb) !important;
+}
+.pagination > li > a > span{
+    padding-top: 0.2rem;
 }
 .pagination > li > a:hover{
     color: white;
@@ -157,6 +176,9 @@ h6 {
 .pagination > .active > a:hover{
     background-color: var(--bs-secondary-rgb) !important;
     border: 1px solid var(--bs-secondary-rgb) !important;
+}
+textarea::-webkit-scrollbar {
+    width: 0;
 }
 
 ::-webkit-scrollbar {
@@ -200,5 +222,55 @@ h6 {
         right: -30px;
         bottom: -40px;
         z-index: -1;
+    }
+}
+
+@media (max-width: 1250px){
+    .error div img{
+        height: 500px;
+    }
+}
+
+@media (max-width: 1060px){
+    .error div img{
+        height: 300px;
+    }
+}
+
+@media (max-width: 925px){
+    .error div{
+        flex-direction: column-reverse;
+        min-height: auto;
+        height: 100vh;
+    }
+    .error div div{
+        height: fit-content;
+        margin: 0 10px;
+        text-align: center;
+        font-size: 80%;
+    }
+    .error div div h1{
+        font-size: 50px;
+    }
+    .error div img{
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 575px){
+    .human3{
+        width: 100%;
+    }
+    .error div img{
+        height: 30vh;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .pagination > li{
+        height: auto;
+    }
+    .error div div h1{
+        font-size: 35px;
     }
 }

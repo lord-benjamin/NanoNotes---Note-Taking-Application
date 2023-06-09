@@ -1,11 +1,11 @@
-<div class="container-fluid container-fluid-custom pb-5 mb-5">
-    <div class="row mb-2 px-5">
-        <div class="col">
+<div class="container-fluid container-fluid-custom pb-sm-5 mb-sm-5 pb-0 mb-0">
+    <div class="row mb-2 px-md-5 px-3">
+        <div class="col-12 text-sm-start text-center">
             <h1>Hi, <%- userName %></h1>
         </div>
     </div>
-    <div class="row mb-4 px-5">
-        <div class="col">
+    <div class="row d-flex flex-sm-row flex-column mb-4 px-md-5 px-3">
+        <div class="col-sm-9 col-12 mb-sm-0 mb-2 text-sm-start text-center">
             <h1 class="fs-3">
                 <% if(allNotes.length > 0){ %>
                     Here are your notes...
@@ -14,14 +14,14 @@
                 <% } %>
             </h1>
         </div>
-        <div class="col text-end">
+        <div class="d-flex align-items-center justify-content-sm-end col-sm-3 col-12 justify-content-center">
             <a href="/dashboard/add" class="btn btn-primary">Add Note</a>
         </div>
     </div>
-    <div class="row px-5">
+    <div class="row px-md-5 px-sm-3 px-0">
         <%  if(allNotes.length > 0){ %>
             <%  for(let i=0; i<allNotes.length; ++i){ %>
-                    <div class="col-sm-3 mb-4">
+                    <div class=" col-xxl-3 col-xl-4 col-md-6 mb-4">
                         <div class="card border-primary rounded-4" style="min-height: 280px; height: 100%;">
                             <a href="/dashboard/notes/<%= allNotes[i]._id %>" class="card-body text-decoration-none">
                                 <h5 class="card-title"><%= allNotes[i].title.length>50 ? allNotes[i].title.substr(0,50)+"..." : allNotes[i].title %></h5>
@@ -42,10 +42,10 @@
             <%  } %>
         <%  } else{ %>
                 <div class="row">
-                    <div class="col-4 text-end">
-                        <img src="/images/human3.png" alt="human pointing to create button">
+                    <div class="col-md-5 col-6 text-end">
+                        <img class="human3" src="/images/human3.png" alt="human pointing to create button">
                     </div>
-                    <div class="col">
+                    <div class="col-md-7 col-6">
                         <h1>Okay,</h1>
                         <h5 class="mb-4">Let's start with your first note!</h5>
                         <a class="fs-4 fw-bold" href="/dashboard/add">Create one!</a>
@@ -56,61 +56,61 @@
     
     <%  if(allNotes.length > 0){ %>
         <nav>
-            <ul class="pagination justify-content-center mt-5">
+            <ul class="pages pagination justify-content-center mt-sm-5 mt-4 mb-0 mb-sm-4">
                 <% if(totalPages <= 3){ %>
                     <% if(currentPage != 1){ %>
-                        <li class="page-item"><a class="page-link" href="/dashboard"><i class="fa-solid fa-angles-left"></i></a></li>
+                        <li><a href="/dashboard"><i class="fa-solid fa-angles-left"></i></a></li>
                         <% var prev = Number(currentPage)-1 %>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= prev %>"><i class="fa-solid fa-angle-left"></i></a></li>
+                        <li><a href="/dashboard/?page=<%= prev %>"><i class="fa-solid fa-angle-left"></i></a></li>
                     <% } %>
                     <% for(let i = 1; i<=totalPages; ++i){ %>
                         <% if(i==currentPage){ %>
-                            <li class="page-item active"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                            <li class="active"><a href="/dashboard/?page=<%= i %>"><span><%= i %></span></a></li>
                         <% } else{ %>
-                            <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                            <li><a href="/dashboard/?page=<%= i %>"><span><%= i %></span></a></li>
                         <% } %>
                     <% } %>
                     <% if(currentPage != totalPages){ %>
                         <% var next = Number(currentPage)+1 %>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= next %>"><i class="fa-solid fa-angle-right"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= totalPages %>"><i class="fa-solid fa-angles-right"></i></a></li>
+                        <li><a href="/dashboard/?page=<%= next %>"><i class="fa-solid fa-angle-right"></i></a></li>
+                        <li><a href="/dashboard/?page=<%= totalPages %>"><i class="fa-solid fa-angles-right"></i></a></li>
                     <% } %>
                 <% } else { %>
                     <% if(currentPage != 1){ %>
-                        <li class="page-item"><a class="page-link" href="/dashboard"><i class="fa-solid fa-angles-left"></i></a></li>
+                        <li><a href="/dashboard"><i class="fa-solid fa-angles-left"></i></a></li>
                         <% var prev = Number(currentPage)-1 %>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= prev %>"><i class="fa-solid fa-angle-left"></i></a></li>
+                        <li><a href="/dashboard/?page=<%= prev %>"><i class="fa-solid fa-angle-left"></i></a></li>
                     <% } %>
                     <% if(currentPage > 2){ %>
-                        <li class="page-item"><a class="page-link disabled" href="#">...</a></li>
+                        <li><a class=" disabled" href="#">...</a></li>
                     <% } %>
                     <% if(currentPage == 1){ %>
-                        <li class="page-item active"><a class="page-link" href="/dashboard">1</a></li>
+                        <li class="active"><a href="/dashboard"><span>1</span></a></li>
                         <% for(let i = 2; i<=3; ++i){ %>
-                            <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                            <li><a href="/dashboard/?page=<%= i %>"><span><%= i %></span></a></li>
                         <% } %>
                     <% } %>  
                     <% if(currentPage > 1 && currentPage < totalPages){ %>
                         <% var prev = Number(currentPage)-1 %>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= prev %>"><%= prev %></a></li>
+                        <li><a href="/dashboard/?page=<%= prev %>"><span><%= prev %></span></a></li>
                         <% var curr = Number(currentPage) %>
-                        <li class="page-item active"><a class="page-link" href="/dashboard/?page=<%= curr %>"><%= curr %></a></li>
+                        <li class=" active"><a href="/dashboard/?page=<%= curr %>"><span><%= curr %></span></a></li>
                         <% var next = Number(currentPage)+1 %>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= next %>"><%= next %></a></li>
+                        <li><a href="/dashboard/?page=<%= next %>"><span><%= next %></span></a></li>
                     <% } %>
                     <% if(currentPage == totalPages){ %>
                         <% for(let i = totalPages-2; i<=totalPages-1; ++i){ %>
-                            <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+                            <li><a href="/dashboard/?page=<%= i %>"><span><%= i %></span></a></li>
                         <% } %>
-                        <li class="page-item active"><a class="page-link" href="/dashboard/?page=<%= totalPages %>"><%= totalPages %></a></li>
+                        <li class="active"><a href="/dashboard/?page=<%= totalPages %>"><span><%= totalPages %></span></a></li>
                     <% } %> 
                     <% if(currentPage < totalPages-1){ %>
-                        <li class="page-item"><a class="page-link disabled" href="#">...</a></li>
+                        <li><a class=" disabled" href="#">...</a></li>
                     <% } %>
                     <% if(currentPage != totalPages){ %>
                         <% var next = Number(currentPage)+1 %>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= next %>"><i class="fa-solid fa-angle-right"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= totalPages %>"><i class="fa-solid fa-angles-right"></i></a></li>
+                        <li><a href="/dashboard/?page=<%= next %>"><i class="fa-solid fa-angle-right"></i></a></li>
+                        <li><a href="/dashboard/?page=<%= totalPages %>"><i class="fa-solid fa-angles-right"></i></a></li>
                     <% } %>
                 <% } %>
             </ul>
