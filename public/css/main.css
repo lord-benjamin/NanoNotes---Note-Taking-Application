@@ -262,7 +262,7 @@ textarea::-webkit-scrollbar {
         width: 100%;
     }
     .error div img{
-        height: 30vh;
+        height: 200px;
     }
 }
 
