@@ -93,9 +93,13 @@ h6 {
     width: 1.1em;
     margin-right: 0.15em;
 }
+.features li p{
+    padding-left: 0.5rem;
+}
 .features li::marker{
-    content: "✔ ";
-    font-size: 1.5rem;
+    content: '\f00c';
+    font-family: FontAwesome;
+    font-size: 1.2rem;
 }
 .error div div{
     margin-right: 20px;
