@@ -17,7 +17,7 @@
                 </div>
             </div>
             <% searchResults.forEach(note => { %>
-                <a type="submit" class="mb-3 row" href="/dashboard/notes/<%= note._id %>">
+                <a type="submit" class="mb-3 row" style="width: fit-content;" href="/dashboard/notes/<%= note._id %>">
                     <h4><%= note.title %></h4>
                 </a>
             <% }) %>
